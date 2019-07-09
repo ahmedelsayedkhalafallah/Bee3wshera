@@ -11,9 +11,15 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private NavigationView navigationView;
+    private CategoriesRecyclerAdapter categoriesRecyclerAdapter;
+    private Button seeAllcategoriesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +94,42 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        /*initializing category list*/
+        // data to populate the RecyclerView with
+        ArrayList<String> animalNames = new ArrayList<>();
+        animalNames.add("Horse");
+        animalNames.add("Cow");
+        animalNames.add("Camel");
+        animalNames.add("Sheep");
+        animalNames.add("Goat");
+
+        // set up the RecyclerView
+        RecyclerView recyclerView = findViewById(R.id.searchCategoryRecycler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        categoriesRecyclerAdapter = new CategoriesRecyclerAdapter(this, animalNames);
+        categoriesRecyclerAdapter.setClickListener(new CategoriesRecyclerAdapter.ItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(MainActivity.this, "You clicked " + categoriesRecyclerAdapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
+        recyclerView.setAdapter(categoriesRecyclerAdapter);
+
+
+        //see all categories button
+        seeAllcategoriesButton = findViewById(R.id.seeAllCategories);
+        seeAllcategoriesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
+
+
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
