@@ -29,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private CategoriesRecyclerAdapter categoriesRecyclerAdapter;
     private DealsRecyclerAdapter dealsRecyclerAdapter;
-    private Button seeAllcategoriesButton,seeAllDealsButton;
+    private RecentRecyclerAdapter recentRecyclerAdapter;
+    private Button seeAllcategoriesButton,seeAllDealsButton,seeAllRecentButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,6 +153,30 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        RecyclerView recentRecyclerView = findViewById(R.id.searchRecentRecycler);
+        recentRecyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        recentRecyclerAdapter = new RecentRecyclerAdapter(this, animalNames);
+        recentRecyclerAdapter.setClickListener(new RecentRecyclerAdapter.ItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(MainActivity.this, "You clicked " + recentRecyclerAdapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
+        recentRecyclerView.setAdapter(recentRecyclerAdapter);
+
+
+        //see all categories button
+        seeAllRecentButton = findViewById(R.id.seeAllRecent);
+        seeAllRecentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
+
 
 
     }
