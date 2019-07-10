@@ -100,11 +100,11 @@ public class MainActivity extends AppCompatActivity {
         /*initializing category list*/
         // data to populate the RecyclerView with
         ArrayList<String> animalNames = new ArrayList<>();
-        animalNames.add("Horse");
-        animalNames.add("Cow");
-        animalNames.add("Camel");
-        animalNames.add("Sheep");
-        animalNames.add("Goat");
+        animalNames.add("Product 1");
+        animalNames.add("Product 2");
+        animalNames.add("Product 3");
+        animalNames.add("Product 4");
+        animalNames.add("Product 5");
 
         // set up the RecyclerView
         RecyclerView categoryRecyclerView = findViewById(R.id.searchCategoryRecycler);
