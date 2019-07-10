@@ -139,7 +139,8 @@
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -217,10 +218,12 @@
                 </android.support.constraint.ConstraintLayout>
 
                 <android.support.v7.widget.RecyclerView
-                    android:id="@+id/searchCategoryRecycler"
+                    android:id="@+id/searchDealsRecycler"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </LinearLayout>
+
+
 
         </LinearLayout>
 

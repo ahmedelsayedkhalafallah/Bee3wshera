@@ -1,12 +1,32 @@
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:right="-100dp"
-        android:bottom="-100dp"
-        android:top="350dp"
-        android:left="100dp">
-        <shape android:shape="oval" >
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    android:paddingBottom="0dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-            <solid android:color="@color/colorAccentTransparent"/>
+    <!-- Container GRAY rectangle -->
+    <item>
+        <shape android:shape="rectangle">
+
+            <size
+                android:width="280dp"
+                android:height="140dp" />
+
+            <solid
+                android:color="@android:color/transparent" />
         </shape>
     </item>
+    <item
+        android:left="160dp"
+        android:right="-30dp"
+        android:top="40dp"
+        android:bottom="-50dp">
+
+        <shape android:shape="oval">
+
+            <solid
+                android:color="@color/colorAccentTransparent" />
+        </shape>
+    </item>
+
+
 </layer-list>

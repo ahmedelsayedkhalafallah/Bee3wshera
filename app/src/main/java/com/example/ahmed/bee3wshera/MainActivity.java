@@ -28,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private NavigationView navigationView;
     private CategoriesRecyclerAdapter categoriesRecyclerAdapter;
-    private Button seeAllcategoriesButton;
+    private DealsRecyclerAdapter dealsRecyclerAdapter;
+    private Button seeAllcategoriesButton,seeAllDealsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,8 +106,8 @@ public class MainActivity extends AppCompatActivity {
         animalNames.add("Goat");
 
         // set up the RecyclerView
-        RecyclerView recyclerView = findViewById(R.id.searchCategoryRecycler);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        RecyclerView categoryRecyclerView = findViewById(R.id.searchCategoryRecycler);
+        categoryRecyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         categoriesRecyclerAdapter = new CategoriesRecyclerAdapter(this, animalNames);
         categoriesRecyclerAdapter.setClickListener(new CategoriesRecyclerAdapter.ItemClickListener() {
             @Override
@@ -114,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "You clicked " + categoriesRecyclerAdapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
             }
         });
-        recyclerView.setAdapter(categoriesRecyclerAdapter);
+        categoryRecyclerView.setAdapter(categoriesRecyclerAdapter);
 
 
         //see all categories button
@@ -125,6 +126,34 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        /*initializing deals list*/
+        // data to populate the RecyclerView with
+
+
+        // set up the RecyclerView
+        RecyclerView dealsRecyclerView = findViewById(R.id.searchDealsRecycler);
+        dealsRecyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        dealsRecyclerAdapter = new DealsRecyclerAdapter(this, animalNames);
+        dealsRecyclerAdapter.setClickListener(new DealsRecyclerAdapter.ItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(MainActivity.this, "You clicked " + dealsRecyclerAdapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
+        dealsRecyclerView.setAdapter(dealsRecyclerAdapter);
+
+
+        //see all categories button
+        seeAllDealsButton = findViewById(R.id.seeAllTopDeals);
+        seeAllDealsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
     }
 
 
